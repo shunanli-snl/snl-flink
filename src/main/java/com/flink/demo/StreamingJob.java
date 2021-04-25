@@ -19,10 +19,10 @@
 package com.flink.demo;
 
 import com.flink.demo.function.FlatMap;
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
+import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.streaming.api.datastream.DataStream;
-import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
+import org.apache.flink.streaming.api.datastream.DataStreamSource;
 
 /**
  * Skeleton for a Flink Streaming Job.
@@ -46,8 +46,11 @@ public class StreamingJob {
 
 		DataStreamSource<String> ds =  env.socketTextStream("h101",9001);
 
+		DataStream<Tuple2<String, Integer>> dataStream = ds.flatMap(new FlatMap())
+				.keyBy(0)
+				.sum(1);
 
-
+		dataStream.print();
 
 		// execute program
 		env.execute("Flink Streaming Java API Skeleton");
