@@ -7,6 +7,9 @@ public class FlatMap implements FlatMapFunction {
 
     @Override
     public void flatMap(Object o, Collector collector) throws Exception {
+        String[] tmp = o.toString().split(" ");
+        for (String s : tmp){
 
+        }
     }
 }

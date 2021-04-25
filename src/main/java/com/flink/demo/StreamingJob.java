@@ -18,8 +18,10 @@
 
 package com.flink.demo;
 
+import com.flink.demo.function.FlatMap;
 import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import org.apache.flink.streaming.api.datastream.DataStream;
+import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 
 /**
@@ -40,27 +42,12 @@ public class StreamingJob {
 		// set up the streaming execution environment
 		// final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 		final StreamExecutionEnvironment env = StreamExecutionEnvironment.createLocalEnvironment();
-		DataStream<String> text = env.readTextFile("D:\\workspace\\develop\\aa.txt");
-		text.print();
-		/*
-		 * Here, you can start creating your execution plan for Flink.
-		 *
-		 * Start with getting some data from the environment, like
-		 * 	env.readTextFile(textPath);
-		 *
-		 * then, transform the resulting DataStream<String> using operations
-		 * like
-		 * 	.filter()
-		 * 	.flatMap()
-		 * 	.join()
-		 * 	.coGroup()
-		 *
-		 * and many more.
-		 * Have a look at the programming guide for the Java API:
-		 *
-		 * https://flink.apache.org/docs/latest/apis/streaming/index.html
-		 *
-		 */
+		// DataStream<String> text = env.readTextFile("D:\\workspace\\develop\\aa.txt");
+
+		DataStreamSource<String> ds =  env.socketTextStream("h101",9001);
+
+
+
 
 		// execute program
 		env.execute("Flink Streaming Java API Skeleton");
