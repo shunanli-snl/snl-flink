@@ -20,6 +20,7 @@ package com.flink.demo;
 
 import com.flink.demo.function.FlatMap;
 import org.apache.flink.api.java.tuple.Tuple2;
+import org.apache.flink.api.java.utils.ParameterTool;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
@@ -44,7 +45,18 @@ public class StreamingJob {
 		final StreamExecutionEnvironment env = StreamExecutionEnvironment.createLocalEnvironment();
 		// DataStream<String> text = env.readTextFile("D:\\workspace\\develop\\aa.txt");
 
-		DataStreamSource<String> ds =  env.socketTextStream("h101",9001);
+		// 设置多线程
+		env.setParallelism(Runtime.getRuntime().availableProcessors());
+
+		String ip = "192.168.10.40";
+		int port = 9001;
+		String file = "D:\\aa.txt";
+
+		// flink 自带parameterTool 收集参数 使用--host 192.168.10.40 --port 9001
+		ParameterTool params = ParameterTool.fromArgs(args);
+
+		// DataStream<String> ds = env.readTextFile(file);
+		DataStream<String> ds =  env.socketTextStream(ip,port);
 
 		DataStream<Tuple2<String, Integer>> dataStream = ds.flatMap(new FlatMap())
 				.keyBy(0)

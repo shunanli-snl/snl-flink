@@ -40,7 +40,8 @@ public class BatchJob {
 		// set up the batch execution environment
 		final ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
 
-		DataSource<String> dataset = env.readTextFile("D:\\aa.txt");
+		String file = "D:\\aa.txt";
+		DataSource<String> dataset = env.readTextFile(file);
 
 		DataSet<Tuple2<String,Integer>> result = dataset.flatMap(new FlatMap())
 				.groupBy(0)
