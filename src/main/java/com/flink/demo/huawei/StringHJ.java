@@ -12,17 +12,17 @@ import java.util.*;
  */
 public class StringHJ {
     public static void main(String[] args) {
-        // HJ31 单词倒排
-        Scanner sc = new Scanner(System.in);
-        if (StringUtils.isNotBlank(sc.nextLine())){
-            String[] strings = sc.nextLine().split(" ");
-            StringBuffer sh = new StringBuffer();
-            for (int i = (strings.length-1); i > 0 ; i--) {
-                sh.append(strings[i]).append(" ");
-            }
-            System.out.println(sh.deleteCharAt(sh.length()-1).toString());
-        }
 
+
+//        // HJ31 单词倒排
+//        Scanner sc = new Scanner(System.in);
+//        String lines = sc.nextLine();
+//        String[] strings =  lines.split(" ");
+//        StringBuffer sh = new StringBuffer();
+//        for (int i = (strings.length-1); i >= 0 ; i--){
+//            sh.append(strings[i]).append(" ");
+//        }
+//        System.out.println(sh.toString());
 
 
 /*
