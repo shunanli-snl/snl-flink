@@ -10,12 +10,5 @@ import java.util.List;
  * @version: V1.0
  */
 public class Application {
-    public static void main(String[] args) {
-        int[] ints = new int[2];
-        ints[0] = 1;
-        for (int i : ints) {
-            System.out.println(i);
-        }
-NH
-    }
+
 }
