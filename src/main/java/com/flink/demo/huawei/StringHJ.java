@@ -31,21 +31,11 @@ import java.util.*;
  */
 public class StringHJ {
     public static void main(String[] args) {
-        // Scanner sc = new Scanner(System.in);
 
 
-//        // 进制转换
-//        Scanner in = new Scanner(System.in);
-//        // 注意 hasNext 和 hasNextLine 的区别
-//        while (in.hasNext()) { // 注意 while 处理多个 case
-//            String a = in.next();
-//            int b = Integer.decode(a);
-//            System.out.println(b);
-//        }
 
-/*        // HJ7 取近似值
-        double d = 3.4;
-        System.out.println(Math.round(d));*/
+
+
 
 /*        // HJ31 单词倒排
         Scanner sc = new Scanner(System.in);
@@ -58,52 +48,192 @@ public class StringHJ {
         System.out.println(sh.toString());*/
 
 
-/*
-        // HJ11 数字颠倒
-        int a = 10109;
-        System.out.println(new StringBuffer().append(a).reverse().toString());
-*/
+/*        // HJ13 句子逆序
+        import java.util.Scanner;
+        public class Main {
+            public static void main ( String[] args ) {
+                Scanner in = new Scanner( System.in );
+                String s = in.nextLine();
+                String newString = reverse( s );
+                System.out.println( newString );
+                in.close();
+            }
+            public static String reverse(String sentence) {
+                String s[] = sentence.split(" ");
+                String newString = "";
+                for( int i = s.length-1 ; i >= 0 ; i-- ) {
+                    if( i > 0 ) {
+                        newString += s[i] + " ";
+                    }
+                    else {
+                        newString += s[i];
+                    }
+                }
+                return newString;
+            }
+        }*/
+
+/*        // HJ12 字符串反转
+        import java.util.Scanner;
+        public class Main{
+            public static void main(String[] args) {
+                Scanner sc = new Scanner(System.in);
+                while(sc.hasNext()){
+                    String s = sc.next();
+                    StringBuffer sb = new StringBuffer(s);
+                    System.out.println(sb.reverse());
+                }
+            }
+        }*/
+
+/*        // HJ11 数字颠倒
+        import java.util.*;
+        public class Main {
+            public static void main(String[] args) {
+                Scanner in = new Scanner(System.in);
+                while (in.hasNextLine()) {
+                    String a = in.nextLine();
+                    System.out.println(new StringBuffer().append(a).reverse().toString());
+                }
+            }
+        }*/
+
+/*        // HJ10 字符个数统计
+        import java.util.*;
+        public class Main {
+            public static void main(String[] args) {
+                Scanner in = new Scanner(System.in);
+                while (in.hasNextLine()) {
+                    String a = in.nextLine();
+                    System.out.println(a.length());
+                }
+            }
+        }*/
+
+/*        // HJ9 提取不重复整数
+        import java.util.Scanner;
+        public class Main {
+            public static void main (String[] args) {
+                Scanner in = new Scanner(System.in);
+                int n = in.nextInt();
+                String s = String.valueOf(n);
+                String s1 = "";
+                for(int i = s.length()-1;i>=0;i--) {
+                    if(!s1.contains(String.valueOf(s.charAt(i)))) {
+                        s1 = s1 + String.valueOf(s.charAt(i));
+                    }
+                }
+                System.out.println(s1);
+                in.close();
+            }
+        }*/
+
+/*        // HJ8 合并表记录
+        import java.util.Scanner;
+
+        public class Main {
+            public static void main(String[] args) {
+                Scanner sc = new Scanner(System.in);
+                while (sc.hasNext()) {
+                    int num = sc.nextInt();
+                    int[] a = new int[10000];
+                    // 定义一个大数组
+                    for (int j = 0; j < num; j++) {
+                        // num个循环，每个循环输入一组
+                        int i = sc.nextInt();
+                        int b = sc.nextInt();
+                        a[i] += b; // 以i为key，b为value，不断累加 }
+
+                    }
+                    for (int i = 0; i < num; i++) {
+                        if (a[i] != 0) {
+                            System.out.println(i + " " + a[i]);// 输出所有非零值；
+                        }
+                    }
+                }
+            }
+        }*/
+
+/*        // HJ7 取近似值
+        Scanner in = new Scanner(System.in);
+        double a = in.nextDouble();
+        System.out.println(Math.round(a));*/
+
+/*        // HJ6 质数因子
+        import java.util.*;
+        public class Main {
+            public static void main(String[] args) {
+                Scanner str = new Scanner(System.in); //获取输入，创建对象
+                long num = str.nextLong();   //
+                String result = getResult(num);
+                System.out.println(result);
+            }
+            public static String getResult(long num){
+                int pum = 2;
+                String result = "";     // 这里用String来作为结果存放
+                while(num != 1){
+                    while(num%pum == 0){
+                        num = num/pum;
+                        result = result + pum + " ";
+                    }
+                    pum++;
+                }
+                return result;
+            }
+        }*/
+
+/*        // HJ5 进制转换
+        Scanner in = new Scanner(System.in);
+        while (in.hasNextLine()) {
+            String a = in.nextLine();
+            System.out.println(Integer.decode(a));
+        }*/
 
 /*        // HJ4 字符串分隔
-        Scanner sc = new Scanner(System.in);
-        String next = sc.next()+"00000000";
-        System.out.println(next.substring(0,8));*/
-
-/*        // HJ3 明明的随机数
-        int tmp = 0;
-        TreeSet<Integer> sets = new TreeSet<Integer>();
-        // Set<Integer> sets = new HashSet<Integer>();
-        while (tmp < 5){
-            System.out.println("===== 请输入参数：");
-            Scanner sc = new Scanner(System.in);
-            String next = sc.next();
-            for (int i = 0; i < Integer.valueOf(next); i++ ){
-                sets.add((int) (Math.floor(Math.random()*100)));
+        Scanner in = new Scanner(System.in);
+        while (in.hasNextLine()) {
+            String a = in.nextLine();
+            if (a.length()<9){
+                System.out.println((a+"00000000").substring(0,8));
+            } else if (a.length()<19){
+                System.out.println(a.substring(0,8));
+                String tmp = a.substring(8,a.length()) + "00000000";
+                System.out.println(tmp.substring(0,8));
             }
-            TreeSet t = (TreeSet) sets.descendingSet();
-            t.forEach(x->{
-                System.out.println(x+"\n");
-            });
-            tmp++;
         }*/
 
 
+/*        // HJ3 明明的随机数 python2
+        while True:
+            try:
+                n=int(raw_input())
+                res=[]
+                for i in range(n):
+                    res.append(int(raw_input()))
+                for i in sorted(set(res)):
+                    print i
+            except:
+                break*/
+
+
 /*        // HJ2 计算字符串字符重复的个数
-        String tmp = "hello huawei";
-        int length = tmp.length();
-        int h = tmp.replaceAll(" ", "").length();
-        System.out.println(length - h);*/
+        Scanner in = new Scanner(System.in);
+        String a = in.nextLine();
+        String b = null;
+        if (in.hasNextLine()) {
+            b = in.nextLine();
+        }
+        int c = a.length();
+        String tmp1= a.replaceAll(b.toLowerCase(),"");
+        String tmp2 = tmp1.replaceAll(b.toUpperCase(),"");
+        System.out.println(c-tmp2.length());*/
 
         // HJ1 计算最后一个字符测长度，支持中英文。
-        String tmp = "hello huawei";
-        // String tmp = "你好 华为鸿蒙系统";
-        // System.out.println(tmp.split(" ")[tmp.split(" ").length-1]);
-//        if (StringUtils.isNotBlank(tmp)) {
-//            List<String> asList = Arrays.asList(tmp.split(" "));
-//            for (int i = (asList.size()-1); i > 0; i--) {
-//                System.out.println(asList.get(i).length());
-//                break;
-//            }
-//        }
+/*        Scanner in = new Scanner(System.in);
+        if (in.hasNextLine()) {
+            String a = in.nextLine();
+            String[] b = a.split(" ");
+            System.out.println(b[b.length-1].length());
+        }*/
     }
 }
