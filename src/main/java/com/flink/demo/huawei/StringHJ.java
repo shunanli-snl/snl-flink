@@ -32,11 +32,6 @@ import java.util.*;
 public class StringHJ {
     public static void main(String[] args) {
 
-
-
-
-
-
 /*        // HJ31 单词倒排
         Scanner sc = new Scanner(System.in);
         String lines = sc.nextLine();
@@ -46,6 +41,42 @@ public class StringHJ {
             sh.append(strings[i]).append(" ");
         }
         System.out.println(sh.toString());*/
+
+        // HJ18
+
+/*        // HJ17 坐标移动
+        Scanner sc = new Scanner(System.in);
+        Map<Character,Integer> map = new HashMap<>();
+        while (sc.hasNext()){
+            String s = sc.nextLine();
+            int x = 0,y = 0;
+            String[] sArray = s.split(";");
+            String res = "[ADWS]\\d{1}\\d?";
+            for (int i = 0; i < sArray.length; i++) {
+                if (sArray[i].matches(res)){
+                    map.put(sArray[i].charAt(0),map.getOrDefault(sArray[i].charAt(0),0) + Integer.valueOf(sArray[i].substring(1)));
+                }
+            }
+            x = x - map.get('A') + map.get('D');
+            y = y - map.get('S') + map.get('W');
+            System.out.println(x + "," + y);
+            map.clear();
+        }
+        sc.close();*/
+
+        // HJ15 求int型正整数在内存中存储时1的个数
+/*        import java.util.*;
+
+        public class Main{
+            public static void main(String[] args){
+                Scanner sc = new Scanner(System.in);
+                int i = sc.nextInt();
+                System.out.println(countOne(i));
+            }
+            public static int countOne(int a){
+                return a == 0 ? 0 : a % 2 + countOne(a / 2);
+            }
+        }*/
 
 
 /*        // HJ13 句子逆序
@@ -215,8 +246,8 @@ public class StringHJ {
             except:
                 break*/
 
-
-/*        // HJ2 计算字符串字符重复的个数
+/*
+        // HJ2 计算字符串字符重复的个数
         Scanner in = new Scanner(System.in);
         String a = in.nextLine();
         String b = null;
@@ -226,14 +257,17 @@ public class StringHJ {
         int c = a.length();
         String tmp1= a.replaceAll(b.toLowerCase(),"");
         String tmp2 = tmp1.replaceAll(b.toUpperCase(),"");
-        System.out.println(c-tmp2.length());*/
+        System.out.println(c-tmp2.length());
+        */
 
+/*
         // HJ1 计算最后一个字符测长度，支持中英文。
-/*        Scanner in = new Scanner(System.in);
+        Scanner in = new Scanner(System.in);
         if (in.hasNextLine()) {
             String a = in.nextLine();
             String[] b = a.split(" ");
             System.out.println(b[b.length-1].length());
-        }*/
+        }
+        */
     }
 }
